@@ -1,9 +1,6 @@
 # типы данных и переменная
 # int, float, boolean, str, list, None
 
-from operator import inv
-
-
 value = None
 print(type(value))
 a = 123
@@ -31,13 +28,15 @@ print(d, ' + ', e, ' = ', d+e)
 g = 2
 h = 8
 i = g//h # это целочисленное деление
+j = g %  g # это остаток от деления
+# в python нет ограничений на размеры хранимых данных в переменных - любые числа приемлемы
 j = g ** h  # возведение в степень - встроенная функция
 print(i)
 k = 1.3
 l = 3
-m = round(k * l, 1) #Без функции round даст 3.9000000000000004 
+m = round(k * l, 1) #Без функции round даст 3.9000000000000004 - это особенность хранения вещественных чисел
 print(m)
-l += 5
+l += 5 # сокращенная запись
 print(l)
 n = 1 < 4 and 5 > 2
 print(n)
@@ -49,8 +48,20 @@ if d > e:
     print(d)
 else:
     print(e)
+
+# дополнительный синтаксис - if elif elif ... else
+username = input("Введите имя: ")
+if username == 'Маша':
+    print('Ураб это же Маша!')
+elif username == 'Марина':
+    print('Я так ждала, Вас, Марина')
+elif username == 'Ильнар':
+    print('Ильнар - топ')
+else:
+    print('Привет, ', username)
+
 original = 23
-inverted = 0
+inverted = 0    
 while original != 0:
     inverted = inverted * 10 + (original % 10)
     original //= 10
@@ -62,7 +73,9 @@ print(inverted)
 for i in 1,2,3,4,5:
     print(i**2)
 
-    r = range(10)
+    r = range(10) # это диапазон от 0 до 9
+    rt = range(1,5) # диапазон от 1 до 5
+    rte = range (1, 10, 2) # диапазон от 1 до 9 с шагом 2
     for i in r: #цикл будет повторяться от 1 до 9
         print(i)    
 for i in range(1, 5, 2): # третье число обозначает шаг - 2 тут
@@ -113,3 +126,6 @@ def f(x):
         return 23
     else:
         return
+arg = 2.3
+print(f(arg))
+print (type(f(arg)))
